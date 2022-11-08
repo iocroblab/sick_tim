@@ -44,7 +44,7 @@ SickTimDatagramTest::SickTimDatagramTest(AbstractParser* parser) :
 {
   //dynamic_reconfigure_server_.getConfigDefault(config_);
   dynamic_reconfigure::Server<sick_tim::SickTimConfig>::CallbackType f;
-  f = boost::bind(&sick_tim::SickTimDatagramTest::update_config, this, _1, _2);
+  f = std::bind(&sick_tim::SickTimDatagramTest::update_config, this, std::placeholders::_1, std::placeholders::_2);
   dynamic_reconfigure_server_.setCallback(f);
 
   pub_ = nh_.advertise<sensor_msgs::LaserScan>("scan_from_datagram", 1000);

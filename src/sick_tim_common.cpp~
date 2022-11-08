@@ -49,7 +49,7 @@ SickTimCommon::SickTimCommon(AbstractParser* parser) :
     // FIXME All Tims have 15Hz?
 {
   dynamic_reconfigure::Server<sick_tim::SickTimConfig>::CallbackType f;
-  f = std::bind(&sick_tim::SickTimCommon::update_config, this, std::placeholders::_1, std::placeholders::_2);
+  f = boost::bind(&sick_tim::SickTimCommon::update_config, this, _1, _2);
   dynamic_reconfigure_server_.setCallback(f);
 
   // datagram publisher (only for debug)
