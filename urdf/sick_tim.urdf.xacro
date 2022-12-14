@@ -10,7 +10,7 @@
   </xacro:macro>
 
   <xacro:macro name="sick_tim551" params="name ros_topic min_angle:=-2.357 max_angle:=2.357 min_range:=0.05 max_range:=10">
-    <xacro:sick_tim name="${name}" ros_topic="${ros_topic}" 
+    <xacro:sick_tim name="${name}" ros_topic="${ros_topic}"
       length="0.06" width="0.06" height="0.086" mass="0.250" z_offset="0.06296"
       min_range="${min_range}" max_range="${max_range}"
       min_angle="${min_angle}" max_angle="${max_angle}"
@@ -45,7 +45,7 @@
       </visual>
       <collision>
         <geometry>
-          <mesh filename="${mesh}" />
+          <box size="0.06 0.06 0.08"/>
         </geometry>
       </collision>
       <inertial>
